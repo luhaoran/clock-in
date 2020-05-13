@@ -1,0 +1,31 @@
+npm run build
+
+建仓库
+git init
+git add .
+git commit -m "xxxxxxxxxx" 
+git remote add origin https://github.com/luhaoran/reactDemo.git
+git pull origin master
+git push -u origin master
+
+新建
+
+提交更新
+Git status 查看更改了那些文件
+Git add 某个文件 添加修改的文件
+Git commit -m '' 把添加的文件提交到本地仓库，并写上说明
+Git push -u origin master 提交到主分支
+
+
+下载更新
+git pull origin master
+
+当完成一个组件时
+git baranch 查看所有分支和当前所处分之
+git checkout -b users 创建users分支并切换到users分支
+git add . 添加所有文件到仓库
+git commit -m "" 提交到仓库
+git push -u origin users 提交到远程仓库
+git checkout master 切换到master分支
+git merge users 将users分支合并到master
+git push origin master 再把master分支提交到远程仓库
