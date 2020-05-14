@@ -1,15 +1,15 @@
 <template>
-  <div id="home">
+  <div id="User">
     <h3 style="padding:0 16px">人员管理</h3>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Home",
+  name: "user",
   data() {
     return {
-      name: "home",
+      name: "User",
       activeKey:0
     };
   },

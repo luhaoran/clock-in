@@ -4,19 +4,19 @@
       <router-view></router-view>
     </transition>
     <div id="foot">
-      <div class="ft-nav">
+      <div class="ft-nav" @click="$router.push('/')">
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-shuqian" />
         </svg>
         <span>打卡</span>
       </div>
-      <div class="ft-nav">
+      <div class="ft-nav" @click="$router.push('/statistics')">
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-tongjitu" />
         </svg>
         <span>统计</span>
       </div>
-      <div class="ft-nav">
+      <div class="ft-nav" @click="$router.push('/users')">
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-yonghu" />
         </svg>

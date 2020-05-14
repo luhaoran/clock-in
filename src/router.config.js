@@ -2,6 +2,8 @@ import Vue from 'vue'
 import vueRouter from 'vue-router'
 import Index from './components/Index'
 import Home from './components/Home'
+import Statistics from './components/Statistics'
+import Users from './components/Users'
 
 Vue.use(vueRouter)
 
@@ -18,6 +20,14 @@ const router = new vueRouter({
     {
         path: '/home',
         component: Home,
+    },
+    {
+        path: '/users',
+        component: Users,
+    },
+    {
+        path: '/statistics',
+        component: Statistics,
     },
     ]
 })

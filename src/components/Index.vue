@@ -1,5 +1,6 @@
 <template>
   <div id="Index">
+    <h3 style="padding:0 16px">考勤打卡</h3>
     <van-cell-group>
       <van-cell
         title="选择日期"
@@ -150,11 +151,11 @@ export default {
 }
 .clock-in {
   text-align: center;
-  margin-top: 10%;
+  margin-top: 1%;
   width: calc(100% - 85px);
   .clock-in-item {
     color: #bfbfbf;
-    margin: 40px 0;
+    margin: 30px 0;
     display: flex;
     width: 100%;
     flex-direction: column;
