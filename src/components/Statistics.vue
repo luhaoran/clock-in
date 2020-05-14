@@ -14,17 +14,22 @@
         <van-cell
           title="选择日期区间"
           icon="calender-o"
-          :value="startDate + ' - ' + endDate"
+          :value="endDate + ' - ' + startDate"
           size="large"
           @click="showDateSelect=true"
         />
       </van-cell-group>
       <!-- <div class="alert alert-warning">出勤半天算作为1次</div> -->
       <van-collapse v-model="activeNames" accordion>
-        <van-collapse-item title="角色1" name="1" value="共出勤1次">内容</van-collapse-item>
-        <van-collapse-item title="角色2" name="2" value="共出勤1次">内容</van-collapse-item>
-        <van-collapse-item title="角色3" name="3" value="共出勤1次">内容</van-collapse-item>
-        <van-collapse-item title="角色4" name="4" value="共出勤1次">内容</van-collapse-item>
+        <van-collapse-item v-for="item in users" :key="JSON.stringify(item)" :title="item.name"  :name="item.name" :value="'共出勤'+item.count+'次'">
+          <ul>
+            <li v-for="(value,key2) in item.clocks" :key="JSON.stringify(value)">
+              {{key2}}
+              <span v-if="value.morning">上午</span>
+              <span v-if="value.afternoon">下午</span>
+            </li>
+          </ul>
+        </van-collapse-item>
       </van-collapse>
     </div>
   </div>
@@ -40,13 +45,16 @@ export default {
       showDateSelect: false,
       startDate: "",
       endDate: "",
-      activeNames: []
+      activeNames: [],
+      users:[]
     };
   },
   mounted() {
     this.startDate = this.getNowFormatDate();
     //获取上个月日期
     this.endDate = this.getLastMonthDate();
+
+    this.getTongji()
   },
   methods: {
     getLastMonthDate() {
@@ -99,6 +107,15 @@ export default {
       this.showDateSelect = false;
       this.startDate = this.formatDate(start);
       this.endDate = this.formatDate(end);
+    },
+    getTongji(){
+      const { startDate,endDate } = this
+      const data = { startDate,endDate }
+      this.$axios.get('/getTongji',{params:data}).then(({data})=>{
+        if(data.status === 1){
+          this.users = data.data
+        }
+      })
     }
   }
 };
